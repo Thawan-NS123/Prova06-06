@@ -4,12 +4,20 @@ import { conexao } from './connection.js';
 export async function cadastarPet(pet){
     const comando =
     `INSERT INTO tb_pet(nm_pet)
-            VALUE(?)`
+                  VALUE(?)`
     
-    const [resposta] = await conexao.query(pet.nome);
-    pet.id = resposta.insertId;
-    return pet;
+    const [resposta] = await conexao.query(comando, [pet.nome]);
+    pet.id=resposta.insertId;
+    return resposta[0];
 }
 
 
-ex
+export async function consultarTodosPet(){
+    const comando = 
+    `select id_pet			id,
+            nm_pet			nome
+       from tb_pet`
+
+    const [linhas] = await conexao.query(comando);
+    return linhas;
+}
