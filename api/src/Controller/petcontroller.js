@@ -4,7 +4,6 @@ import { Router } from 'express'
 
 const server = Router();
 
-
 server.post('/pet', async(req, resp) =>{
     try {
 
@@ -25,7 +24,6 @@ server.post('/pet', async(req, resp) =>{
     }
 });
 
-
 server.get('/pet', async(req, resp) =>{
     try {
 
@@ -39,7 +37,5 @@ server.get('/pet', async(req, resp) =>{
         })
     }
 })
-
-
 
 export default server

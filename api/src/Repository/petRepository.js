@@ -7,7 +7,6 @@ export async function cadastarPet(pet){
                   VALUE(?)`
     
     const [resposta] = await conexao.query(comando, [pet.nome]);
-    pet.id=resposta.insertId;
     return resposta[0];
 }
 
